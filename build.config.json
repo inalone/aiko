@@ -1,0 +1,14 @@
+{
+	"appId": "com.inalone.aiko",
+	"productName": "aiko",
+	"directories": {
+		"output": "dist"
+	},
+	"files": [
+		"src/electron/main.cjs",
+		{
+			"from": "build",
+			"to": ""
+		}
+	]
+}
