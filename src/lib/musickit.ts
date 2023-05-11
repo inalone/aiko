@@ -1,11 +1,12 @@
-let isMusicKitInitialised = false;
-let musicKitInstance: MusicKit.MusicKitInstance;
+import token from "./token"
+
+let instance: MusicKit.MusicKitInstance;
 
 export async function initMusicKit() {
 	const initPromise: Promise<MusicKit.MusicKitInstance> = new Promise((resolve) => {
 		document.addEventListener('musickitloaded', () => {
 			const instance = MusicKit.configure({
-				developerToken: process.env.APPLE_DEVELOPER_TOKEN ?? 'unknown-token',
+				developerToken: token ?? 'unknown-token',
 				app: {
 					name: 'aiko',
 					build: '0.0.1'
@@ -15,10 +16,11 @@ export async function initMusicKit() {
 		});
 	});
 
-	console.log('before');
-	musicKitInstance = await initPromise;
-	console.log('after');
-	isMusicKitInitialised = true;
+	instance = await initPromise;
+
+	console.log('MusicKit configured.');
+
+	instance.authorize();
 }
 
 initMusicKit();
