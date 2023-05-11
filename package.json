@@ -11,10 +11,8 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-
 		"start": "electron .",
 		"start-wayland": "electron . --ozone-platform=wayland",
-
 		"build": "pnpm build:svelte && pnpm build:electron",
 		"build:electron": "electron-builder --config build.config.json",
 		"build:svelte": "vite build"
@@ -22,6 +20,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
+		"@types/musickit-js": "^1.0.5",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"electron": "^24.3.0",
@@ -29,7 +28,7 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.26.0",
-		"prettier": "^2.8.0",
+		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.8.1",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
