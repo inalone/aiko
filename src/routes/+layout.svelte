@@ -1,9 +1,15 @@
 <script lang="ts">
-import "../lib/musickit";
+	import { toggleLogin } from '../lib/musickit';
+	import { isLoggedIn } from '../lib/store';
 </script>
 
 <svelte:head>
-    <script src="https://js-cdn.music.apple.com/musickit/v3/musickit.js"></script>
+	<script src="https://js-cdn.music.apple.com/musickit/v3/musickit.js"></script>
 </svelte:head>
 
-<slot />
+{#if $isLoggedIn}
+	<slot />
+{:else}
+	<h2>Welcome to aiko!</h2>
+	<button on:click={toggleLogin}>Log In</button>
+{/if}
