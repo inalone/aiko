@@ -20,6 +20,7 @@ async function initMusicKit() {
 	});
 
 	instance = await initPromise;
+	isLoggedIn.set(instance.isAuthorized);
 	console.log('MusicKit configured.');
 }
 
