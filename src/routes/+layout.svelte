@@ -14,9 +14,7 @@
 		<div class="flex min-h-screen justify-center items-center">
 			<Loading />
 		</div>
-	{:else if $isLoggedIn}
-		<slot />
-	{:else}
+	{:else if !$isLoggedIn}
 		<div class="hero min-h-screen">
 			<div class="hero-content text-center">
 				<div class="max-w-md space-y-4">
@@ -26,5 +24,7 @@
 				</div>
 			</div>
 		</div>
+	{:else}
+		<slot />
 	{/if}
 </main>
