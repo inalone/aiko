@@ -26,6 +26,6 @@ async function initMusicKit() {
 initMusicKit();
 
 export async function toggleLogin() {
-	instance.isAuthorized ? await instance.unauthorize() : instance.authorize();
+	instance.isAuthorized ? await instance.unauthorize() : await instance.authorize();
 	isLoggedIn.set(instance.isAuthorized);
 }
