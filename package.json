@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"daisyui": "^2.51.6",
 		"electron-serve": "^1.1.0"
 	}
 }

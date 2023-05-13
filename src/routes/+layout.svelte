@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../app.css';
 	import { toggleLogin } from '../lib/musickit';
 	import { isLoggedIn } from '../lib/store';
 </script>
