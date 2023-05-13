@@ -10,7 +10,8 @@ function createThemeStore() {
 			set(newTheme);
 		}
 	};
-};
+}
 
 export const isLoggedIn = writable(false);
+export const isMusicKitInitialised = writable(false);
 export const theme = createThemeStore();

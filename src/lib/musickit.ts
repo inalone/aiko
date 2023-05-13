@@ -1,9 +1,7 @@
 import token from './token';
-import { isLoggedIn } from './store';
+import { isLoggedIn, isMusicKitInitialised } from './store';
 
 let instance: MusicKit.MusicKitInstance;
-let musicKitInit = new Promise(() => {});
-let initialized = false;
 
 async function initMusicKit() {
 	const initPromise: Promise<MusicKit.MusicKitInstance> = new Promise((resolve) => {
@@ -21,18 +19,13 @@ async function initMusicKit() {
 
 	instance = await initPromise;
 	isLoggedIn.set(instance.isAuthorized);
+	isMusicKitInitialised.set(true);
 	console.log('MusicKit configured.');
 }
 
 initMusicKit();
 
 export async function toggleLogin() {
-	if (instance.isAuthorized) {
-		await instance.unauthorize();
-	} else {
-		console.log(instance);
-		await instance.authorize();
-	}
-
+	instance.isAuthorized ? await instance.unauthorize() : instance.authorize();
 	isLoggedIn.set(instance.isAuthorized);
 }

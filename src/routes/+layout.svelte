@@ -1,7 +1,8 @@
 <script lang="ts">
 	import '../app.css';
-	import { toggleLogin } from '../lib/musickit';
-	import { isLoggedIn, theme } from '../lib/store';
+	import Loading from '$lib/components/Loading.svelte';
+	import { toggleLogin } from '$lib/musickit';
+	import { isLoggedIn, isMusicKitInitialised, theme } from '$lib/store';
 </script>
 
 <svelte:head>
@@ -9,7 +10,11 @@
 </svelte:head>
 
 <main data-theme={$theme}>
-	{#if $isLoggedIn}
+	{#if !$isMusicKitInitialised}
+		<div class="flex min-h-screen justify-center items-center">
+			<Loading />
+		</div>
+	{:else if $isLoggedIn}
 		<slot />
 	{:else}
 		<div class="hero min-h-screen">
